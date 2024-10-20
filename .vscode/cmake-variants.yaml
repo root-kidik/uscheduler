@@ -1,0 +1,20 @@
+buildType:
+  default: debug
+  choices:
+    debug:
+      short: Debug
+      long: Unoptimized debug
+      buildType: Debug
+      settings:
+        CMAKE_EXPORT_COMPILE_COMMANDS: ON
+        CMAKE_TOOLCHAIN_FILE: ./cmake/arm-none-eabi-gcc.cmake
+        CMAKE_GENERATOR: Ninja
+
+    release:
+      short: Release
+      long: Optimized build
+      buildType: Release
+      settings:
+        CMAKE_EXPORT_COMPILE_COMMANDS: ON
+        CMAKE_TOOLCHAIN_FILE: ./cmake/arm-none-eabi-gcc.cmake
+        CMAKE_GENERATOR: Ninja
