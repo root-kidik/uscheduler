@@ -1,12 +1,10 @@
-#include "main.h"
-
 #include <chrono>
+#include <gpio.h>
+#include <main.h>
 
-#include <uscheduler/Scheduler.hpp>
 #include <uscheduler/STM32Clock.hpp>
+#include <uscheduler/Scheduler.hpp>
 #include <uscheduler/interface/ITimerScheduler.hpp>
-
-#include "gpio.h"
 
 uscheduler::Task Task1(uscheduler::interface::ITimerScheduler& timer_scheduler)
 {
@@ -35,7 +33,7 @@ int main(void)
     MX_GPIO_Init();
 
     uscheduler::STM32Clock clock;
-    uscheduler::Scheduler scheduler{clock};
+    uscheduler::Scheduler  scheduler{clock};
     scheduler.Run({Task1, Task2});
 }
 

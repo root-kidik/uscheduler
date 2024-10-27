@@ -16,14 +16,17 @@ set(STM32CUBEMX_GENERATED_FILES
   ${SRCROOT}/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c 
   ${SRCROOT}/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c 
   ${SRCROOT}/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c 
-  ${SRCROOT}/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c 
+  ${SRCROOT}/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c
+  ${SRCROOT}/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c 
   
 	${SRCROOT}/Core/Inc/gpio.h
+  ${SRCROOT}/Core/Inc/usart.h
   ${SRCROOT}/Core/Inc/main.h
   ${SRCROOT}/Core/Inc/stm32f1xx_hal_conf.h
   ${SRCROOT}/Core/Inc/stm32f1xx_it.h
 
 	${SRCROOT}/Core/Src/gpio.c
+  ${SRCROOT}/Core/Src/usart.c
   ${SRCROOT}/Core/Src/stm32f1xx_hal_msp.c
   ${SRCROOT}/Core/Src/stm32f1xx_it.c
   ${SRCROOT}/Core/Src/system_stm32f1xx.c
