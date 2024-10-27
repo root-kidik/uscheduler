@@ -6,8 +6,18 @@ set(SRC
 
   ${INCROOT}/Task.hpp
 
-  ${INCROOT}/LinearStackAllocator.hpp
-  ${INCROOT}/LinearStackAllocator.inl
+  ${INCROOT}/Scheduler.hpp
+  ${SRCROOT}/Scheduler.cpp
+
+  ${INCROOT}/interface/IClock.hpp
+  ${INCROOT}/interface/ITimerScheduler.hpp
+  ${SRCROOT}/interface/ITimerScheduler.cpp
+
+  ${INCROOT}/scheduler/TimerScheduler.hpp
+  ${SRCROOT}/scheduler/TimerScheduler.cpp
+
+  ${INCROOT}/STM32Clock.hpp
+  ${SRCROOT}/STM32Clock.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SRC})

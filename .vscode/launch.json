@@ -7,7 +7,7 @@
 			"request": "launch",
 			"cwd": "${workspaceRoot}",
 			"servertype": "openocd",
-			"executable": "./build/bin/usheduler",
+			"executable": "./build/bin/uscheduler",
 			"svdFile": "./drivers/STM32F103.svd",
 			"configFiles": [
 				"interface/stlink-v2.cfg",

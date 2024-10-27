@@ -1,15 +1,9 @@
 #pragma once
 
-#include <cassert>
 #include <coroutine>
-#include <initializer_list>
 
-#include <usheduler/LinearStackAllocator.hpp>
-
-namespace usheduler
+namespace uscheduler
 {
-
-usheduler::LinearStackAllocator<512> g_coroutine_linear_stack_allocator;
 
 struct Task
 {
@@ -33,15 +27,6 @@ struct Task
         void unhandled_exception()
         {
         }
-
-        void* operator new(std::size_t size)
-        {
-            return g_coroutine_linear_stack_allocator.Allocate(size);
-        }
-
-        void operator delete(void* ptr)
-        {
-        }
     };
 
     Task(std::coroutine_handle<promise_type> handle) : m_handle{handle}
@@ -58,4 +43,4 @@ private:
 };
 
 
-} // namespace usheduler
+} // namespace uscheduler

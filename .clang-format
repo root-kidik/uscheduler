@@ -95,7 +95,7 @@ MaxEmptyLinesToKeep: 2
 IncludeBlocks: Regroup
 IncludeCategories:
   - Priority: 114
-    Regex: "^<usheduler(.+)>$"
+    Regex: "^<uscheduler(.+)>$"
   - Priority: 100
     Regex: "^<(.+)>$"
   - Priority: 200

@@ -46,7 +46,17 @@
         "numbers": "cpp",
         "ostream": "cpp",
         "stdexcept": "cpp",
-        "streambuf": "cpp"
+        "streambuf": "cpp",
+        "charconv": "cpp",
+        "chrono": "cpp",
+        "ctime": "cpp",
+        "format": "cpp",
+        "iomanip": "cpp",
+        "ratio": "cpp",
+        "span": "cpp",
+        "sstream": "cpp",
+        "variant": "cpp",
+        "list": "cpp"
     },
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
 }
