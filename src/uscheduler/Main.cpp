@@ -19,7 +19,7 @@ uscheduler::Task Task2(uscheduler::interface::ITimerScheduler& timer_scheduler)
 {
     for (;;)
     {
-        // Some long compute
+        // Some long compute(blocking)
         HAL_Delay(500);
         co_await std::suspend_always{};
     }
