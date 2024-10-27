@@ -1,7 +1,7 @@
 #pragma once
 
-#include <set>
 #include <list>
+#include <set>
 
 #include <uscheduler/interface/ITimerScheduler.hpp>
 
@@ -27,7 +27,7 @@ private:
 
     std::list<Consumer> m_delay_consumers;
 
-    interface::IClock& m_clock;
+    interface::IClock&                 m_clock;
     std::set<std::coroutine_handle<>>& m_active_tasks;
 };
 

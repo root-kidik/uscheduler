@@ -1,11 +1,12 @@
-#include <uscheduler/scheduler/TimerScheduler.hpp>
-
 #include <uscheduler/interface/IClock.hpp>
+#include <uscheduler/scheduler/TimerScheduler.hpp>
 
 namespace uscheduler::scheduler
 {
 
-TimerScheduler::TimerScheduler(interface::IClock& clock, std::set<std::coroutine_handle<>>& active_tasks) : m_clock{clock}, m_active_tasks{active_tasks}
+TimerScheduler::TimerScheduler(interface::IClock& clock, std::set<std::coroutine_handle<>>& active_tasks) :
+m_clock{clock},
+m_active_tasks{active_tasks}
 {
 }
 

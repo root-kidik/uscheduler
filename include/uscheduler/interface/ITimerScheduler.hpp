@@ -35,7 +35,7 @@ protected:
         std::chrono::milliseconds fire_tick;
     };
 
-    virtual void    AddConsumer(Consumer consumer)         = 0;
+    virtual void AddConsumer(Consumer consumer) = 0;
 };
 
 } // namespace uscheduler::interface
