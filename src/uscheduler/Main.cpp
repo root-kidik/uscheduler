@@ -10,8 +10,9 @@ uscheduler::Task Task1(uscheduler::interface::ITimerScheduler& timer_scheduler)
 {
     for (;;)
     {
-        co_await timer_scheduler.Delay(std::chrono::milliseconds{500});
         HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+        co_await timer_scheduler.Delay(std::chrono::milliseconds{500});
+        co_await std::suspend_always{};
     }
 }
 
@@ -19,8 +20,9 @@ uscheduler::Task Task2(uscheduler::interface::ITimerScheduler& timer_scheduler)
 {
     for (;;)
     {
-        co_await timer_scheduler.Delay(std::chrono::milliseconds{1000});
         HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+        co_await timer_scheduler.Delay(std::chrono::milliseconds{1000});
+        co_await std::suspend_always{};
     }
 }
 
@@ -33,8 +35,8 @@ int main(void)
     MX_GPIO_Init();
 
     uscheduler::STM32Clock clock;
-    uscheduler::Scheduler  scheduler{clock};
-    scheduler.Run({Task1, Task2});
+    uscheduler::Scheduler  scheduler{clock, {Task1, Task2}};
+    scheduler.Run();
 }
 
 void SystemClock_Config(void)

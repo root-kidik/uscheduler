@@ -29,17 +29,11 @@ struct Task
         }
     };
 
-    Task(std::coroutine_handle<promise_type> handle) : m_handle{handle}
+    Task(std::coroutine_handle<promise_type> handle) : handle{handle}
     {
     }
 
-    void resume() const
-    {
-        m_handle.resume();
-    }
-
-private:
-    std::coroutine_handle<promise_type> m_handle;
+    std::coroutine_handle<promise_type> handle;
 };
 
 

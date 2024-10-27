@@ -5,7 +5,7 @@
 namespace uscheduler::scheduler
 {
 
-TimerScheduler::TimerScheduler(interface::IClock& clock) : m_clock{clock}
+TimerScheduler::TimerScheduler(interface::IClock& clock, std::set<std::coroutine_handle<>>& active_tasks) : m_clock{clock}, m_active_tasks{active_tasks}
 {
 }
 
@@ -15,7 +15,7 @@ void TimerScheduler::Tick()
     {
         if (m_clock.GetTick() > it->fire_tick)
         {
-            it->handle.resume();
+            m_active_tasks.insert(it->handle);
             it = m_delay_consumers.erase(it);
         }
         else
@@ -33,6 +33,7 @@ TimerScheduler::Awaiter TimerScheduler::Delay(std::chrono::milliseconds delay)
 void TimerScheduler::AddConsumer(Consumer consumer)
 {
     m_delay_consumers.push_back(consumer);
+    m_active_tasks.erase(consumer.handle);
 }
 
 } // namespace uscheduler::scheduler
