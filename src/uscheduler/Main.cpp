@@ -19,8 +19,9 @@ uscheduler::Task Task2(uscheduler::interface::ITimerScheduler& timer_scheduler)
 {
     for (;;)
     {
-        HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-        co_await timer_scheduler.Delay(std::chrono::milliseconds{1000});
+        // Some long compute
+        HAL_Delay(500);
+        co_await std::suspend_always{};
     }
 }
 
